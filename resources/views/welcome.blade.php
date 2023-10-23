@@ -9,12 +9,12 @@
 </head>
 <body>
     @include('layouts.aside')
-    <div>
+    <div> 
         <img src="assets/image/bg.png" alt="" class="shadow-xl">
     </div>
     
     
-    <div class="relative w-[1352px] h-[400px] bg-white">
+    <div id="about" class="relative w-[1352px] h-[400px] bg-white" >
         <img src="assets/image/logo_happistudio 4.png" alt="" class="w-[350px] ml-20 mt-10 absolute top-0">
         <p class="flex justify-center text-xl font-bold mt-10"> ABOUT US</p>
         

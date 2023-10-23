@@ -1,76 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <style>
-        .login-box {
-    background-color: red; /* Mengatur warna latar belakang menjadi merah */
-    padding: 20px; /* Memberikan ruang pola di dalam box */
-    border-radius: 10px; /* Mengatur sudut border untuk memberikan tampilan lebih berbentuk */
-    box-shadow: 0 4px 8px rgba(41, 40, 40, 0.1); /* Memberikan efek bayangan untuk menonjolkan box */
-    width:400px; 
-}
-
-    </style>
     @vite('resources/css/app.css')
 </head>
-<body>
-    <div>
-        {{-- <x-guest-layout> --}}
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-    <div>
-        <img src="assets/image/bg 2.png" alt="" class="object-cover grayscale" width="200px" >
+
+<body class="flex w-[1352px] h-[600px] bg-white">
+    <div class="relative">
+        <img src="assets/image/bg 2.png" alt="" class="w-[810px] h-[688px] object-cover grayscale">
+        <img src="assets/image/efek.png" alt="" class="w-[810px] h-[688px] absolute top-0 left-0">
+        <img src="assets/image/logofix.png" alt="" class="w-[270px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
     </div>
-   
 
-    <div class="login-box">
-        <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input  id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    <div class="flex flex-col mt-10">
+        <div class="flex font-bold ml-10" style="font-size:50px;">
+        <p class="text-red-500">LOGIN</p>
+        <p class="text-black">|DAFTAR</p>
+    </div>
+    <div class=" mt-10 ml-10">
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <form method="POST" action="{{ route('login') }}" class="mt-4">
+            @csrf
+            <!-- Email Address -->
+            <div class="mt-2" style="font-family: Inter;">
+                {{-- <x-input-label for="email" :value="__('Email')" /> --}}
+                {{-- <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" /> --}}
+                <input id="email" type="email" name="email":value="old('email')" required autofocus autocomplete="username" placeholder="Username" class="input input-bordered border-2 border-black w-full max-w-xl" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <!-- Password -->
+            <div  class="mt-5" style="font-family: Inter;">
+                {{-- <x-input-label for="password" :value="__('Password')" /> --}}
+                {{-- <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" /> --}}
+                <input id="password" type="password"name="password" required autocomplete="current-password" placeholder="Password" class="input input-bordered border-2 border-black w-full max-w-xl"/>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div> 
+            <!-- Remember Me -->
+            <div  class="mt-5">
+                <label for="remember_me" class="inline-flex items-center">
+                    <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                </label>
+            </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-            <x-primary-button class="ml-3">
+            <div class="flex flex-col mt-5">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
+                <x-danger-button class="text-center btn btn-danger mt-5 font-bold" style="font-size:15px;">
                 {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
+                </x-danger-button>
+            </div>
+        </form>
     </div>
-    
-    {{-- </x-guest-layout> --}}
     </div>
 </body>
 </html>

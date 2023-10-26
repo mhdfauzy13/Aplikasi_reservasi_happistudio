@@ -18,8 +18,9 @@
 
     <div class="flex flex-col mt-10">
         <div class="flex font-bold ml-10" style="font-size:50px;">
-        <p class="text-red-500">LOGIN</p>
-        <p class="text-black">|DAFTAR</p>
+        <a class="text-black hover:text-red-500" href="/login">LOGIN</a>
+        |
+        <a class="text-black hover:text-red-500" href="/register">DAFTAR</a>
     </div>
     <div class=" mt-10 ml-10">
         <!-- Session Status -->

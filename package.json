@@ -15,5 +15,9 @@
         "postcss": "^8.4.31",
         "tailwindcss": "^3.3.3",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.2",
+        "preline": "^1.9.0"
     }
 }

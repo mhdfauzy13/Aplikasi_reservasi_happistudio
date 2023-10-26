@@ -32,5 +32,9 @@ Route::get('/pricelist', function () {
     return view('pricelist');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 
 require __DIR__.'/auth.php';

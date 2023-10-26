@@ -9,17 +9,18 @@
 </head>
 <body>
     @include('layouts.aside')
-    <div> 
-        <img src="assets/image/bg.png" alt="" class="shadow-xl">
-    </div>
-    
-    
-    <div id="about" class="relative w-[1352px] h-[400px] bg-white" >
+
+
+                    <div>
+                        <img src="assets/image/bg.png" >
+                    </div>
+
+
+    <div id="about" class="relative w-[1352px] h-[600px] bg-white mx-auto" >
         <img src="assets/image/logo_happistudio 4.png" alt="" class="w-[350px] ml-20 mt-10 absolute top-0">
-        <p class="flex justify-center text-xl font-bold mt-10"> ABOUT US</p>
-        
+        <h1 class="flex justify-center text-xl font-bold mt-10"> ABOUT US</h1>
     </div>
-    <div class=" w-[1352px] h-[600px] bg-gradient-to-b from-white to-red-700">
+    <div class=" h-[800px] bg-gradient-to-b from-white to-red-700 mx-auto ">
         <div class="flex justify-center">
             <div class="card w-80 bg-base-100 shadow-xl mt-10 ml-10">
                 <figure class="px-5 pt-5">
@@ -27,9 +28,13 @@
                 </figure>
             <div class="card-body items-center text-center mt-7" >
                 <h2 class="card-title text-red-500" style="font-family: Boogaloo;  font-size:15px;">SELF PHOTO FOR SINGLE</h2>
-            <div class="card-actions">
-                <button class=" btn btn-neutral">Lihat detail</button>
-            </div>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    Lihat Detail
+                  </button>
+
+
+
             </div>
             </div>
             <div class="card w-80 bg-base-100 shadow-xl mt-10 ml-10">
@@ -55,9 +60,6 @@
             </div>
             </div>
         </div>
-    </div>
-    <div class="relative w-[1352px] h-[500px] bg-white">
-
     </div>
     @include('layouts.footer')
 </body>

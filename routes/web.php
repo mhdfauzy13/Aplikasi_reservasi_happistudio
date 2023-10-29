@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Customer\SingleSelfPhotoController;
 use App\Http\Controllers\ProfileController;
+use App\Models\SingleSelfPhoto;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
+
+
 });
 
 Route::get('/pricelist', function () {
@@ -35,6 +41,10 @@ Route::get('/pricelist', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
+
+// Route::get('/form-booking', function () {
+//     return view('form_booking');
+// });
 
 
 require __DIR__.'/auth.php';

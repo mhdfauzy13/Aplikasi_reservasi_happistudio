@@ -29,9 +29,11 @@
             <p class="font-bold">IDR 40.000</p>
         </div>
         <div class="flex justify-end">
-            <button type ="button" class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white" data-target="#form_booking">
+            <a href="{{ route('singleSelfPhoto.createbooking') }}">
+                <button type ="button" class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white" data-target="#form_booking">
                 Booking
             </button>
+            </a>
         </div>
         </div>
         </div>

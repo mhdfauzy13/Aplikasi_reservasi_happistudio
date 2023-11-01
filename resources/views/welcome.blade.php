@@ -20,8 +20,6 @@
                 <a href="#about" class="text-white font-bold hover:text-black mt-5">ABOUT</a>
                 <a href="/pricelist" class="flex items-center text-white font-bold hover:text-black mt-5">
                     PRICELIST
-                    <img src="assets/icon/arrow.png" alt=""
-                        class=" w-6 h-6 filter brightness-0 invert transition-transform origin-center cursor-pointer hover:rotate-180 ml-2">
                 </a>
             </div>
             <div class="flex justify-end mr-5">

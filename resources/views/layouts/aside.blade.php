@@ -12,7 +12,11 @@
             </a>
         </div>
         <div class="flex justify-end">
-            <p class="text-white font-bold mt-5 mr-6">Hi, {{ Auth::user()->name }}</p>
+            <p class="text-white font-bold mt-5 mr-6">
+                @if (Auth::user())
+                Hi, {{ Auth::user()->name }}
+                @endif
+            </p>
         </div>
 
     </div>

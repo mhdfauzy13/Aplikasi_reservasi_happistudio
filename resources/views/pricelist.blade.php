@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="assets/image/logofix.png" type="image/png">
     <title>Pricelist | HAPPI STUDIO</title>
     @vite('resources/css/app.css')
 </head>
@@ -62,14 +63,16 @@
                             </p>
                         </div>
                         <div>
-                            <p class="font-bold">IDR 40.000</p>
+                            <p class="font-bold">IDR 75.000</p>
                         </div>
                         <div class="flex justify-end">
-                            <button type ="button"
-                                class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white"
-                                data-target="#form_booking">
-                                Booking
-                            </button>
+                            <a href="{{ route('DoubleSelfPhoto.createbooking') }}">
+                                <button type ="button"
+                                    class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white"
+                                    data-target="#form_booking">
+                                    Booking
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -90,13 +93,14 @@
                             </p>
                         </div>
                         <div>
-                            <p class="font-bold">IDR 40.000</p>
+                            <p class="font-bold">IDR 125.000</p>
                         </div>
                         <div class="flex justify-end">
-                            <button type ="button"
-                                class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white"
-                                data-target="#form_booking">
-                                Booking
+                            <a href="{{ route('groupSelfPhoto.createbooking') }}">
+                                <button type ="button"
+                                    class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white"
+                                    data-target="#form_booking">
+                                    Booking
                             </button>
                         </div>
                     </div>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Customer\SingleSelfPhotoController;
+use App\Http\Controllers\Customer\DoubleSelfPhoto;
+use App\Http\Controllers\Customer\GroupSelfPhotoController;
 use App\Http\Controllers\ProfileController;
 use App\Models\SingleSelfPhoto;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
-
+    Route::get('/double-self-photo/create', [DoubleSelfPhoto::class, 'createBooking'])->name('DoubleSelfPhoto.createbooking');
+    Route::get('/group-self-photo/create', [GroupSelfPhotoController::class, 'createBooking'])->name('groupSelfPhoto.createbooking');
 
 });
 

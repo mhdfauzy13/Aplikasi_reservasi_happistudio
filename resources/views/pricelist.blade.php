@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pricelist | HAPPI STUDIO</title>
     @vite('resources/css/app.css')
@@ -12,7 +12,7 @@
 <body>
     @include('layouts.aside')
 
-    <div class="relative w-[1352px] h-[1200px] bg-white">
+    <div class="bg-white">
         <div class="flex justify-center ">
             <div class="flex flex-col">
                 <div class="flex max-w-2xl bg-white shadow-2xl rounded-2xl overflow-hidden mt-10 ml-8">

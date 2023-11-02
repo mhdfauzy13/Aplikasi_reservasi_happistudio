@@ -48,6 +48,6 @@ class GroupSelfPhotoController extends Controller
              $datenow->addDays(1);
          }
  
-         return view('customer.self_photo.form_double', compact(['date7hari','waktu']));
+         return view('customer.self_photo.form_group', compact(['date7hari','waktu']));
      }
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="assets/image/logofix.png" type="image/png">
     <title>booking</title>
     @vite('resources/css/app.css')
 </head>
@@ -50,34 +51,51 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="flex flex-col max-w-[500px] w-full mt-4">
+                        <label for="" class="font-semibold text-lg">Jumlah orang</label>
+                        <input type="number"
+                            class="border rounded-lg text-gray-700 focus:outline-none focus:ring focus:border-blue-500"
+                            placeholder="Jumlah orang" min="0">
+                    </div>
+
+
+                    <div class="flex flex-col max-w-[500px] w-full mt-4">
+                        <label for="" class="font-semibold text-lg">Jumlah hewan peliharaan </label>
+                        <input type="number"
+                            class="border rounded-lg text-gray-700 focus:outline-none focus:ring focus:border-blue-500"
+                            placeholder="Jumlah hewan peliharaan" min="0">
+                    </div>
+
+                    {{-- <div class="mt-4">
+                        <p class="font-semibold text-lg mb-4">Warna backdrop</p>
+                        <input type="radio" name="radio-1" class="radio " checked /> Gray
+                        <input type="radio" name="radio-2" class="radio ml-3" /> White
+                        <input type="radio" name="radio-3" class="radio ml-3" /> Pink
+                    </div> --}}
+                    <div class="mt-4">
+                        <select class="select select-bordered w-full max-w-xs">
+                        <option disabled selected>Warna backdrop</option>
+                        <option>Gray</option>
+                        <option>White</option>
+                        <option>Pink</option>
+                    </select>
+                    </div>
+                    <div class="mt-4">
+                        <p class="font-semibold text-lg mb-4">Apakah bersedia hasil foto di upload ke Sosial media
+                            happistudio?</p>
+                        <input type="radio" name="radio-1" class="radio " checked /> Ya
+                        <input type="radio" name="radio-2" class="radio ml-3" /> Tidak
+                    </div>
+                    <div class="flex justify-end mt-8">
+                        <button type ="button" class="btn btn-primary bg-black text-white rounded hover:bg-orange-700">
+                            Booking
+                        </button>
+                    </div>
                 </div>
-                <div class="max-w-[500px] w-full mt-4">
-                    <label for=""class="font-semibold text-lg">Jumlah hewan peliharaan (opsional)</label>
-                    <input type="text" placeholder="Jumlah hewan peliharaan"
-                        class="input input-bordered w-full relative" />
-                </div>
-                <div class="mt-4">
-                    <p class="font-semibold text-lg mb-4">Warna backdrop</p>
-                    <input type="radio" name="radio-1" class="radio " checked /> Gray
-                    <input type="radio" name="radio-2" class="radio ml-3" /> White
-                    <input type="radio" name="radio-3" class="radio ml-3" /> Pink
-                </div>
-                <div class="mt-4">
-                    <p class="font-semibold text-lg mb-4">Apakah bersedia hasil foto di upload ke Sosial media
-                        happistudio?</p>
-                    <input type="radio" name="radio-1" class="radio " checked /> Ya
-                    <input type="radio" name="radio-2" class="radio ml-3" /> Tidak
-                </div>
-                <div class="flex justify-end mt-8">
-                    <button type ="button" class="btn btn-primary bg-black text-white rounded hover:bg-orange-700">
-                        Booking
-                    </button>
-                </div>
+
             </div>
 
         </div>
-
-    </div>
 </body>
 
 </html>

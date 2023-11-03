@@ -42,9 +42,8 @@ Route::get('/pricelist', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin');
+    return view('admin.admin');
 });
-
 // Route::get('/form-booking', function () {
 //     return view('form_booking');
 // });

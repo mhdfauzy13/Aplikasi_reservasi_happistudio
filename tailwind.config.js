@@ -7,6 +7,7 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "node_modules/preline/dist/*.js",
     ],
 
     theme: {
@@ -18,5 +19,5 @@ export default {
     },
 
     // plugins: [],
-    plugins: [forms, require("daisyui")],
+    plugins: [forms, require("daisyui"), "preline/plugin"],
 };

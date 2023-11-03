@@ -40,8 +40,17 @@
 
 
     <div id="about" class="relative h-[600px] bg-white mx-auto">
-        <img src="assets/image/logo_happistudio 4.png" alt="" class="w-[350px] ml-20 mt-10 absolute top-0">
+        <img src="assets/image/logo_happistudio 4.png" alt="" class="w-[350px] ml-10 mt-10 absolute top-0">
         <h1 class="flex justify-center text-xl font-bold mt-10 mr-30"> ABOUT US</h1>
+        <div class="flex justify-end mr-5 mt-8">
+            <p>
+            HappiStudio adalah destinasi utama Anda untuk merayakan keindahan dalam bentuk gambar. <br>
+            Didirikan pada tahun 2023, kami adalah studio fotografi yang penuh semangat,<br>
+            berkomitmen untuk menangkap momen berharga Anda dalam bentuk gambar yang tak terlupakan.<br>
+            Kami memahami bahwa setiap momen memiliki cerita sendiri, dan melalui lensa kami,<br>
+            kami bertujuan untuk merangkum cerita unik Anda dengan keindahan dan keautentikan.<br>
+            </p>
+        </div>
     </div>
     <div class=" h-[800px] bg-gradient-to-b from-white to-red-700 mx-auto ">
         <div class="flex justify-center">

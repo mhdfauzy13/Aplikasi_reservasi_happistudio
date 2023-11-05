@@ -19,5 +19,5 @@ export default {
     },
 
     // plugins: [],
-    plugins: [forms, require("daisyui"), "preline/plugin"],
+    plugins: [require("daisyui", "preline/plugin")],
 };

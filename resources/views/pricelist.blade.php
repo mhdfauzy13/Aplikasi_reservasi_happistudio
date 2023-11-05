@@ -8,6 +8,7 @@
     <link rel="icon" href="assets/image/logofix.png" type="image/png">
     <title>Pricelist | HAPPI STUDIO</title>
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 
 <body>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ManagementCustomerController;
 use App\Http\Controllers\Customer\SingleSelfPhotoController;
 use App\Http\Controllers\Customer\DoubleSelfPhoto;
 use App\Http\Controllers\Customer\GroupSelfPhotoController;
@@ -27,13 +28,26 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::middleware('checkrole:admin')->group(function () {
+        Route::get('/admin', function () {
+            return view('admin.admin');
+        });
+        Route::get('/admin/data-customer', [ManagementCustomerController::class, 'index'])->name('data-customer.index');
+
+
+    });
+    Route::middleware('checkrole:customer')->group(function () {
+            Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
+    Route::get('/double-self-photo/create', [DoubleSelfPhoto::class, 'createBooking'])->name('DoubleSelfPhoto.createbooking');
+    Route::get('/group-self-photo/create', [GroupSelfPhotoController::class, 'createBooking'])->name('groupSelfPhoto.createbooking');
+
+
+    });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
-    Route::get('/double-self-photo/create', [DoubleSelfPhoto::class, 'createBooking'])->name('DoubleSelfPhoto.createbooking');
-    Route::get('/group-self-photo/create', [GroupSelfPhotoController::class, 'createBooking'])->name('groupSelfPhoto.createbooking');
 
 });
 
@@ -41,9 +55,7 @@ Route::get('/pricelist', function () {
     return view('pricelist');
 });
 
-Route::get('/admin', function () {
-    return view('admin.admin');
-});
+
 // Route::get('/form-booking', function () {
 //     return view('form_booking');
 // });

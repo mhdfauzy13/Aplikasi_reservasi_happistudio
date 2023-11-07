@@ -59,7 +59,7 @@
                             <p class="text-red-500 mb-6">
                                 15 minutes photo session<br>
                                 10 minutes photo selection (including printing)<br>
-                                1 printed photo<br>
+                                2 printed photo<br>
                                 all digital soft copy
                             </p>
                         </div>
@@ -87,9 +87,10 @@
                             <h2 class="text-3xl font-semibold mb-4 text-red-500" style="font-family:Boogaloo; ">SELF
                                 PHOTO FOR GROUP</h2>
                             <p class="text-red-500 mb-6">
+                                For 5 person<br>
                                 15 minutes photo session<br>
                                 10 minutes photo selection (including printing)<br>
-                                1 printed photo<br>
+                                5 printed photo<br>
                                 all digital soft copy
                             </p>
                         </div>

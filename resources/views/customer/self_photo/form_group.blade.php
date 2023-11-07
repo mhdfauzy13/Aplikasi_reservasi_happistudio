@@ -54,7 +54,7 @@
                     <div class="flex flex-col max-w-[500px] w-full mt-4">
                         <label for="" class="font-semibold text-lg">Jumlah orang</label>
                         <input type="number"
-                            class="border rounded-lg text-gray-700 focus:outline-none focus:ring focus:border-blue-500"
+                            class="border rounded-lg text-gray-700 input input-bordered w-full relative"
                             placeholder="Jumlah orang" min="0">
                     </div>
 
@@ -62,7 +62,7 @@
                     <div class="flex flex-col max-w-[500px] w-full mt-4">
                         <label for="" class="font-semibold text-lg">Jumlah hewan peliharaan </label>
                         <input type="number"
-                            class="border rounded-lg text-gray-700 focus:outline-none focus:ring focus:border-blue-500"
+                            class="border rounded-lg text-gray-700 input input-bordered w-full relative"
                             placeholder="Jumlah hewan peliharaan" min="0">
                     </div>
 

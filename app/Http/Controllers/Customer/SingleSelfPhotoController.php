@@ -11,7 +11,7 @@ class SingleSelfPhotoController extends Controller
     //createBooking
 
     public function createBooking()
-    {
+    { 
         $datenow = Carbon::now();
         $date7hari = [];
         $waktu = [

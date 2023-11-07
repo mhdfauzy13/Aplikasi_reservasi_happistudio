@@ -16,6 +16,10 @@
             <P class=" text-red-500 font-bold mt-10" style="font-family: Boogaloo; font-size: 40px;">FORM BOOKING</P>
         </div>
 
+        <form action=" ">
+
+        </form>
+
         <div class="flex justify-center mt-8">
             <div class="max-w-[500px] w-full">
                 <div class="w-full">

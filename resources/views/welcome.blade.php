@@ -44,11 +44,11 @@
         <h1 class="flex justify-center text-xl font-bold mt-10 mr-30"> ABOUT US</h1>
         <div class="flex justify-end mr-5 mt-8">
             <p>
-            HappiStudio adalah destinasi utama Anda untuk merayakan keindahan dalam bentuk gambar. <br>
-            Didirikan pada tahun 2023, kami adalah studio fotografi yang penuh semangat,<br>
-            berkomitmen untuk menangkap momen berharga Anda dalam bentuk gambar yang tak terlupakan.<br>
-            Kami memahami bahwa setiap momen memiliki cerita sendiri, dan melalui lensa kami,<br>
-            kami bertujuan untuk merangkum cerita unik Anda dengan keindahan dan keautentikan.<br>
+                HappiStudio adalah destinasi utama Anda untuk merayakan keindahan dalam bentuk gambar. <br>
+                Didirikan pada tahun 2023, kami adalah studio fotografi yang penuh semangat,<br>
+                berkomitmen untuk menangkap momen berharga Anda dalam bentuk gambar yang tak terlupakan.<br>
+                Kami memahami bahwa setiap momen memiliki cerita sendiri, dan melalui lensa kami,<br>
+                kami bertujuan untuk merangkum cerita unik Anda dengan keindahan dan keautentikan.<br>
             </p>
         </div>
     </div>
@@ -59,8 +59,9 @@
                     <img src="assets/image/contoh1.png" alt="" class="rounded-lg w-[250px]" />
                 </figure>
                 <div class="card-body items-center text-center mt-7">
-                    <h2 class="card-title text-red-500" style="font-family: Boogaloo;  font-size:15px;">SELF PHOTO FOR SINGLE</h2>
-                        <button class=" btn btn-neutral">Lihat detail</button>
+                    <h2 class="card-title text-red-500" style="font-family: Boogaloo;  font-size:15px;">SELF PHOTO FOR
+                        SINGLE</h2>
+                    <button class=" btn btn-neutral">Lihat detail</button>
                 </div>
             </div>
             <div class="card w-80 bg-base-100 shadow-xl mt-10 ml-10">
@@ -68,7 +69,8 @@
                     <img src="assets/image/contoh2.jpg" alt="" class="rounded-lg w-[250px]" />
                 </figure>
                 <div class="card-body items-center text-center mt-5">
-                    <h2 class="card-title text-red-500" style="font-family: Boogaloo;  font-size:15px; ">SELF PHOTO FOR DOUBLE</h2>
+                    <h2 class="card-title text-red-500" style="font-family: Boogaloo;  font-size:15px; ">SELF PHOTO FOR
+                        DOUBLE</h2>
                     <div class="card-actions">
                         <button class=" btn btn-neutral">Lihat detail</button>
                     </div>
@@ -79,7 +81,8 @@
                     <img src="assets/image/contoh3.png" alt="" class="rounded-lg w-[250px]" />
                 </figure>
                 <div class="card-body items-center text-center">
-                    <h2 class="card-title text-red-500" style="font-family: Boogaloo; font-size:15px;">SELF PHOTO FOR GROUP</h2>
+                    <h2 class="card-title text-red-500" style="font-family: Boogaloo; font-size:15px;">SELF PHOTO FOR
+                        GROUP</h2>
                     <div class="card-actions">
                         <button class=" btn btn-neutral">Lihat detail</button>
                     </div>
@@ -91,5 +94,3 @@
 </body>
 
 </html>
-
-

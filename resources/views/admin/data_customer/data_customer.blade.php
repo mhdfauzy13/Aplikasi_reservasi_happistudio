@@ -16,7 +16,7 @@
                                     <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
                                         Data Customer
                                     </h2>
-                                </div>
+                                </div> 
 
                             </div>
                             <!-- End Header -->

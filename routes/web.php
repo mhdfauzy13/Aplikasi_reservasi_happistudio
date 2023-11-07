@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\ManagementCustomerController;
+use App\Http\Controllers\Admin\ManagementPricelistController;
 use App\Http\Controllers\Customer\SingleSelfPhotoController;
 use App\Http\Controllers\Customer\DoubleSelfPhoto;
 use App\Http\Controllers\Customer\GroupSelfPhotoController;
@@ -34,11 +36,13 @@ Route::middleware('auth')->group(function () {
             return view('admin.admin');
         });
         Route::get('/admin/data-customer', [ManagementCustomerController::class, 'index'])->name('data-customer.index');
+        Route::get('/admin/data-pricelist', [ManagementPricelistController::class, 'index'])->name('data-pricelist.index');
+        Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
 
 
     });
     Route::middleware('checkrole:customer')->group(function () {
-            Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
+    Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
     Route::get('/double-self-photo/create', [DoubleSelfPhoto::class, 'createBooking'])->name('DoubleSelfPhoto.createbooking');
     Route::get('/group-self-photo/create', [GroupSelfPhotoController::class, 'createBooking'])->name('groupSelfPhoto.createbooking');
 

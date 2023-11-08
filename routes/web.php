@@ -29,6 +29,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Route::middleware(['auth', 'verified'])->group(function () {
+//      // Rute untuk admin
+//     Route::middleware('checkrole:admin')->group(function () {
+//         Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
+//     });
+
+//     // Rute untuk customer
+//     Route::middleware('checkrole:customer')->group(function () {
+//         Route::get('/welcome', function () {
+//             return view('welcome');
+//         })->name('welcome');
+//     });
+// });
+
 Route::middleware('auth')->group(function () {
 
     Route::middleware('checkrole:admin')->group(function () {

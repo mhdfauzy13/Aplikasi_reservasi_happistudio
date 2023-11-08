@@ -7,7 +7,7 @@
     <title>Register</title>
     @vite('resources/css/app.css')
 </head>
-<body class="flex w-[1352px] h-[600px] bg-white">
+<body class="flex bg-white">
     <div class="relative">
         <img src="assets/image/bg 2.png" alt="" class="w-[810px] h-[688px] object-cover grayscale">
         <img src="assets/image/efek.png" alt="" class="w-[810px] h-[688px] absolute top-0 left-0">

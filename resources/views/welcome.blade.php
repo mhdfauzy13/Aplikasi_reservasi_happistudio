@@ -76,7 +76,7 @@
                     <div class="modal">
                         <div class="modal-box">
                             <h3 class="text-lg font-bold">SELF PHOTO FOR SINGLE</h3>
-                            <p class="py-4"> 15 minutes photo session<br>
+                            <p class="text-red-500 mb-6"> 15 minutes photo session<br>
                                 10 minutes photo selection (including printing)<br>
                                 1 printed photo<br>
                                 all digital soft copy

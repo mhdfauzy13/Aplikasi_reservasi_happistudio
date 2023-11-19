@@ -7,6 +7,7 @@ use App\Http\Controllers\Customer\SingleSelfPhotoController;
 use App\Http\Controllers\Customer\DoubleSelfPhoto;
 use App\Http\Controllers\Customer\GroupSelfPhotoController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Paket;
 use App\Models\SingleSelfPhoto;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -52,6 +52,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/data-customer', [ManagementCustomerController::class, 'index'])->name('data-customer.index');
         Route::get('/admin/data-pricelist', [ManagementPricelistController::class, 'index'])->name('data-pricelist.index');
         Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
+        // Route::resource('/pricelists', \App\Http\Controllers\Admin\PostPrecelistController::class)->middleware('admin');
+
+        Route::resource('/pakets', \App\Http\Controllers\Admin\PaketController::class);
+        
 
 
     });
@@ -68,9 +72,13 @@ Route::middleware('auth')->group(function () {
 
 
 });
+    
+
+
 
 Route::get('/pricelist', function () {
-    return view('pricelist');
+    $paket = Paket::all();
+    return view('pricelist', compact('paket'));
 });
 
 

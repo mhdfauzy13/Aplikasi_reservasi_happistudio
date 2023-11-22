@@ -13,13 +13,14 @@
 
 <body>
     <div>
-        @include('components.sidebar1')
-    </div>
-    <div>
         @include('components.header')
     </div>
+    <div>
+
+        @include('components.sidebar1')
+    </div>
     <div class="flex justify-center">
-        <div class="container">
+        <div class="container mx-auto">
             @yield('content')
         </div>
     </div>

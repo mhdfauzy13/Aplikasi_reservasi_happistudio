@@ -78,14 +78,14 @@
                                                                 </td>
                                                                 <td
                                                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                                                    {{ \Illuminate\Support\Str::limit($item->deskripsi, $limit = 40, $end = '...') }}
+                                                                    {{ \Illuminate\Support\Str::limit($item->deskripsi, $limit = 20, $end = '...') }}
 
                                                                 </td>
                                                                 <td
                                                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                                                     {{-- @error('gambar') --}}
                                                                     {{-- <div class="alert alert-danger mt-2"> --}}
-                                                                    <div class="w-[75px]">
+                                                                    <div class="w-[65px]">
                                                                         <img src=" {{ asset('storage/pakets/' . $item->gambar) }}"
                                                                             alt="">
                                                                     </div>
@@ -99,7 +99,7 @@
                                                                 </td>
 
                                                                 <td
-                                                                    class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                                    class="flex justify-end px-6 py-4 mt-5 whitespace-nowrap text-right text-sm font-medium">
                                                                     <a
                                                                         href="{{ route('pakets.edit', ['paket' => $item->id]) }}">
                                                                         <button type="button"
@@ -114,7 +114,7 @@
                                                                         @method('delete')
                                                                         <button type="submit"
                                                                             class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-red-500 text-white hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                                                            Hapus
+                                                                            hapus
                                                                         </button>
                                                                     </form>
 

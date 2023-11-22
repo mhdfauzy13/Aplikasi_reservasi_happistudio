@@ -25,23 +25,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware(['auth', 'verified'])->group(function () {
-//      // Rute untuk admin
-//     Route::middleware('checkrole:admin')->group(function () {
-//         Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
-//     });
+Route::middleware(['auth', 'verified'])->group(function () {
+     // Rute untuk admin
+    Route::middleware('checkrole:admin')->group(function () {
+        Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
+    });
 
-//     // Rute untuk customer
-//     Route::middleware('checkrole:customer')->group(function () {
-//         Route::get('/welcome', function () {
-//             return view('welcome');
-//         })->name('welcome');
-//     });
-// });
+    // Rute untuk customer
+    Route::middleware('checkrole:customer')->group(function () {
+        Route::get('/pricelist', function () {
+            return view('pricelist');
+        })->name('pricelist');
+    });
+});
 
 Route::middleware('auth')->group(function () {
 

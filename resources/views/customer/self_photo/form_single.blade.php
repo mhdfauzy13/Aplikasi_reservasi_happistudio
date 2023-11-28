@@ -27,7 +27,7 @@
                 </div> --}}
                 <div class="max-w-[500px] w-full mt-4">
                     <label for=""class="font-semibold text-lg">No whatsapp</label>
-                    <input type="text" placeholder="No whatsapp" class="input input-bordered w-full relative" />
+                    <input type="text" placeholder="No whatsapp" name="no_whatsaap" class="input input-bordered w-full relative" />
                 </div>
                 {{-- <div class="max-w-[500px] w-full mt-4">
                     <label for=""class="font-semibold text-lg">Email</label>
@@ -35,7 +35,7 @@
                 </div> --}}
                 <div class="mt-4">
     <p class="font-semibold text-lg mb-4">Kategori</p>
-    <select id="kategori_paket" class="select select-bordered w-full">
+    <select id="kategori_paket" name="kategori" class="select select-bordered w-full">
         <option disabled selected>-- Pilih kategori --</option>
         <option value="single">Single</option>
         <option value="double">Double</option>
@@ -45,8 +45,11 @@
 
 <div id="tambahan_orang" class="max-w-[500px] w-full mt-4" style="display: none;">
     <label for="" class="font-semibold text-lg">Tambahan Orang</label>
-    <input name="tambahan_orang" type="text" placeholder="Tambahan Orang" class="input input-bordered w-full relative" />
+    <input name="tambahan_orang" type="number" placeholder="Tambahan Orang" class="iborder rounded-lg text-gray-700 input input-bordered w-full relative"
+    min="5" max="10" />
 </div>
+
+
 
 <script>
     var kategori = document.getElementById("kategori_paket");
@@ -61,45 +64,93 @@
     });
 </script>
 
-                <div>
-                    <p class="mt-4 font-semibold text-lg ">Tanggal booking</p>
-                    <div class="flex flex-wrap">
-                        @foreach ($date7hari as $item)
-                            <div
-                                class="w-[97px] h-[60px] p-2 rounded-lg border border-gray-500 hover:bg-gray-300 mt-4 ml-3 ">
-                                <p class="text-xs text-center">{{ $item->tanggal }} {{ $item->bulan }}</p>
-                                <p class="font-semibold text-center ">{{ $item->hari }}</p>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div>
-                    <p class="mt-4 font-semibold text-lg">Jam booking</p>
-                    <div class="flex flex-wrap">
-                        @foreach ($waktu as $item)
-                            <div
-                                class="w-[70px] h-[50px] p-3 rounded-lg border border-gray-500 hover:bg-gray-300 mt-4 ml-3 ">
-                                <p class="font-semibold text-center">{{ $item->waktu }}</p>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="max-w-[500px] w-full mt-4">
-                    <label for=""class="font-semibold text-lg">Jumlah hewan peliharaan (opsional)</label>
-                    <input type="text" placeholder="Jumlah hewan peliharaan"
-                        class="input input-bordered w-full relative" />
+<div>
+    <p class="mt-4 font-semibold text-lg">Tanggal booking</p>
+    <input type="hidden" name="tanggal_booking" id="tanggalBooking">
+    <div class="flex flex-wrap" id="tanggalContainer">
+        @foreach ($date7hari as $item)
+            <div id="tanggal{{$item->hari}}" onclick="clickTanggal('{{ $item->tanggal }}', '{{ $item->bulan }}')" class="w-[97px] h-[60px] p-2 rounded-lg border border-gray-500 hover:bg-gray-300 mt-4 ml-3 tanggal-item">
+                <p class="text-xs text-center">{{ $item->tanggal }} {{ $item->bulan }}</p>
+                <p class="font-semibold text-center">{{ $item->hari }}</p>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+<script>
+    const tanggalBooking = document.getElementById('tanggalBooking');
+
+    function clickTanggal(hari, bulan) {
+        // Set tanggalBooking sesuai dengan hari dan bulan yang diklik
+        tanggalBooking.value = hari + ' ' + bulan;
+
+        // Reset style warna background pada semua elemen tanggal-item
+        document.querySelectorAll('.tanggal-item').forEach(function (item) {
+            item.style.backgroundColor = 'white';
+        });
+
+        // Ubah warna background pada elemen yang diklik menjadi abu-abu
+        document.getElementById('tanggal' + hari).style.backgroundColor = 'grey';
+    }
+</script>
+
+
+
+<div>
+    <p class="mt-4 font-semibold text-lg">Waktu booking</p>
+    <input type="hidden" name="waktu_booking" id="waktuBooking">
+    <div class="flex flex-wrap" id="waktuContainer">
+        @foreach ($waktu as $item)
+            <div id="waktu{{$loop->index}}" onclick="clickWaktu('{{ $item->waktu }}')" class="w-[70px] h-[50px] p-3 rounded-lg border border-gray-500 hover:bg-gray-300 mt-4 ml-3 waktu-item">
+                <p class="font-semibold text-center">{{ $item->waktu }}</p>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+<script>
+    const waktuBooking = document.getElementById('waktuBooking');
+
+    function clickWaktu(waktu) {
+        // Set waktuBooking sesuai dengan waktu yang diklik
+        waktuBooking.value = waktu;
+
+        // Reset style warna background pada semua elemen waktu-item
+        document.querySelectorAll('.waktu-item').forEach(function (item) {
+            item.style.backgroundColor = 'white';
+        });
+
+        // Ubah warna background pada elemen yang diklik menjadi abu-abu
+        document.getElementById('waktu' + waktu).style.backgroundColor = 'grey';
+    }
+</script>
+
+
+
+
+                <div class="flex flex-col max-w-[500px] w-full mt-4">
+                    <label for="" class="font-semibold text-lg">Jumlah hewan peliharaan </label>
+                    <input type="number"
+                    name="jumlah hewan" class="border rounded-lg text-gray-700 input input-bordered w-full relative"
+                        placeholder="Jumlah hewan peliharaan" min="0">
                 </div>
                 <div class="mt-4">
-                    <p class="font-semibold text-lg mb-4">Warna backdrop</p>
-                    <input type="radio" name="radio-1" class="radio " checked /> Gray
-                    <input type="radio" name="radio-2" class="radio ml-3" /> White
-                    <input type="radio" name="radio-3" class="radio ml-3" /> Pink
+                    <select name="warna" class="select select-bordered w-full max-w-xs">
+                    <option value="" disabled selected>Warna backdrop</option>
+                    <option>Gray</option>
+                    <option>White</option>
+                    <option>Pink</option>
+                </select>
                 </div>
                 <div class="mt-4">
                     <p class="font-semibold text-lg mb-4">Apakah bersedia hasil foto di upload ke Sosial media
                         happistudio?</p>
-                    <input type="radio" name="radio-1" class="radio " checked /> Ya
-                    <input type="radio" name="radio-2" class="radio ml-3" /> Tidak
+                        {{-- <select name="upload_sosmed" id=""> --}}
+                            <input type="radio" name="upload_sosmed" value="1" class="radio "/> Ya
+                            <input type="radio" name="upload_sosmed" value="0" class="radio ml-3" /> Tidak
+                        {{-- </select> --}}
+                    {{-- <input type="radio"  class="radio " checked /> Ya
+                    <input type="radio"  class="radio ml-3" /> Tidak --}}
                 </div>
                 <div class="flex justify-end mt-8">
                     <button type ="submit" class="btn btn-primary bg-black text-white rounded hover:bg-orange-700">

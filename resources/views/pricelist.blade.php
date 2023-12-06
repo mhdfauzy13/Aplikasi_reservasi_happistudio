@@ -18,8 +18,8 @@
         <div class="flex justify-center ">
             <div class="flex flex-col">
                 @foreach ($paket as $item)
-                    
-               
+
+
                 <div class="flex max-w-2xl bg-white shadow-2xl rounded-2xl overflow-hidden mt-10 ml-8">
                     <figure class="w-1/3">
                         <img src="{{ asset('storage/pakets/' . $item->gambar) }}" alt="Movie" class="w-full h-full object-cover transform rotate-3">

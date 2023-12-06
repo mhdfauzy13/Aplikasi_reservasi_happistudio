@@ -18,8 +18,7 @@
         <div class="flex justify-center ">
             <div class="flex flex-col">
                 @foreach ($paket as $item)
-
-
+                
                 <div class="flex max-w-2xl bg-white shadow-2xl rounded-2xl overflow-hidden mt-10 ml-8">
                     <figure class="w-1/3">
                         <img src="{{ asset('storage/pakets/' . $item->gambar) }}" alt="Movie" class="w-full h-full object-cover transform rotate-3">
@@ -30,7 +29,7 @@
                             <h2 class="text-3xl font-semibold mb-4 text-red-500" style="font-family:Boogaloo; ">
                                 {{ $item->nama_paket }}</h2>
                             <p class="text-red-500 mb-6">
-                                 {{ $item->deskripsi }}
+                                {{ $item->deskripsi }}
                             </p>
                         </div>
                         <div>
@@ -48,66 +47,7 @@
                     </div>
                 </div>
                 @endforeach
-                {{-- <div class="flex max-w-2xl bg-white shadow-2xl rounded-2xl overflow-hidden mt-10 ml-8">
-                    <figure class="w-1/3">
-                        <img src="assets/image/contoh2.jpg" alt="Movie"
-                            class="w-full h-full object-cover transform rotate-3">
-                    </figure>
-                    <div class="p-8 flex flex-col justify-between">
-                        <div>
-                            <h2 class="text-3xl font-semibold mb-4 text-red-500" style="font-family:Boogaloo; ">SELF
-                                PHOTO FOR DOUBLE</h2>
-                            <p class="text-red-500 mb-6">
-                                15 minutes photo session<br>
-                                10 minutes photo selection (including printing)<br>
-                                2 printed photo<br>
-                                all digital soft copy
-                            </p>
-                        </div>
-                        <div>
-                            <p class="font-bold">IDR 75.000</p>
-                        </div>
-                        <div class="flex justify-end">
-                            <a href="{{ route('DoubleSelfPhoto.createbooking') }}">
-                                <button type ="button"
-                                    class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white"
-                                    data-target="#form_booking">
-                                    Booking
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex max-w-2xl bg-white shadow-2xl rounded-2xl overflow-hidden mt-10 ml-8">
-                    <figure class="w-1/3">
-                        <img src="assets/image/contoh3.png" alt="Movie"
-                            class="w-full h-full object-cover transform rotate-3">
-                    </figure>
-                    <div class="p-8 flex flex-col justify-between">
-                        <div>
-                            <h2 class="text-3xl font-semibold mb-4 text-red-500" style="font-family:Boogaloo; ">SELF
-                                PHOTO FOR GROUP</h2>
-                            <p class="text-red-500 mb-6">
-                                For 5 person<br>
-                                15 minutes photo session<br>
-                                10 minutes photo selection (including printing)<br>
-                                5 printed photo<br>
-                                all digital soft copy
-                            </p>
-                        </div>
-                        <div>
-                            <p class="font-bold">IDR 125.000</p>
-                        </div>
-                        <div class="flex justify-end">
-                            <a href="{{ route('groupSelfPhoto.createbooking') }}">
-                                <button type ="button"
-                                    class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white"
-                                    data-target="#form_booking">
-                                    Booking
-                            </button>
-                        </div>
-                    </div>
-                </div> --}}
+                
             </div>
         </div>
     </div>

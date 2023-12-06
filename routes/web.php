@@ -11,7 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Paket;
 use App\Models\SingleSelfPhoto;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PricelistController;
+use App\Http\Controllers\Customer\PricelistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,21 +27,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/pricelist', [PricelistController::class, 'pricelist'])->name('pricelist');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-     // Rute untuk admin
-    Route::middleware('checkrole:admin')->group(function () {
-        Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
-    });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-    // Rute untuk customer
-    Route::middleware('checkrole:user')->group(function () {
-        Route::get('/pricelist', [PricelistController::class, 'showPricelist'])->name('pricelist');
-    });
-});
+// Route::middleware(['auth', 'verified'])->group(function () {
+//      // Rute untuk admin
+//     Route::middleware('checkrole:admin')->group(function () {
+//         Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
+//     });
+
+//     // Rute untuk customer
+//     Route::middleware('checkrole:user')->group(function () {
+//         Route::get('/pricelist', [PricelistController::class, 'showPricelist'])->name('pricelist');
+//     });
+// });
 
 Route::middleware('auth')->group(function () {
 
@@ -61,11 +63,8 @@ Route::middleware('auth')->group(function () {
     });
     Route::middleware('checkrole:customer')->group(function () {
     Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
-    // Route::get('/double-self-photo/create', [DoubleSelfPhoto::class, 'createBooking'])->name('DoubleSelfPhoto.createbooking');
-
-    // Route::get('/group-self-photo/create', [GroupSelfPhotoController::class, 'createBooking'])->name('groupSelfPhoto.createbooking');
     Route::post('/single-self-photo/create', [BookingController::class, 'store'])->name('store.booking');
-    Route::get('/pricelist', [PricelistController::class, 'showPricelist'])->middleware('auth');
+    
 
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -74,18 +73,6 @@ Route::middleware('auth')->group(function () {
 
 
 });
-
-
-
-
-// Route::get('/pricelist', function () {
-//     $paket = Paket::all();
-//     return view('pricelist', compact('paket'));
-// });
-
-// Route::get('/form-booking', function () {
-//     return view('form_booking');
-// });
 
 
 require __DIR__.'/auth.php';

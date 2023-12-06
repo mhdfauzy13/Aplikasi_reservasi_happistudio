@@ -43,4 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+     /**
+     * Get the total count of users.
+     *
+     * @return int
+     */
+     public static function getRegisteredUsersCount()
+    {
+        return self::where('role', 'customer')->count();
+    }
 }

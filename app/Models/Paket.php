@@ -19,5 +19,14 @@ class Paket extends Model
         'gambar',
         'harga',
     ];
+    /**
+     * Get the total count of packages.
+     *
+     * @return int
+     */
+    public static function getTotalCount()
+    {
+        return self::count();
+    }
 
 }

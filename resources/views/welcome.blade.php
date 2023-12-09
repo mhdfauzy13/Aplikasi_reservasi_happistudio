@@ -11,8 +11,7 @@
 </head>
 
 <body>
-    <div class="relative w-[1500x] h-[75px] bg-red-600 shadow-xl mt-7">
-
+    {{-- <div class="relative w-[1500x] h-[75px] bg-red-600 shadow-xl mt-7">
         <div class="flex flex-warp">
             <img src="assets/image/logo_happistudio 3.png" alt=""
                 class="w-[130px] ml-20 absolute top-0 shadow-lg ">
@@ -33,7 +32,8 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> --}}
+    @include('layouts.aside')
 
     <div class="carousel carousel-end h-[400px]">
         <div class="carousel-item">

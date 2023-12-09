@@ -1,15 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\DaftarreservasiController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\ManagementCustomerController;
 use App\Http\Controllers\Admin\ManagementPricelistController;
 use App\Http\Controllers\Customer\SingleSelfPhotoController;
-use App\Http\Controllers\Customer\DoubleSelfPhoto;
-use App\Http\Controllers\Customer\GroupSelfPhotoController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Paket;
-use App\Models\SingleSelfPhoto;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\PricelistController;
 
@@ -40,8 +38,8 @@ Route::get('/dashboard', function () {
 //     });
 
 //     // Rute untuk customer
-//     Route::middleware('checkrole:user')->group(function () {
-//         Route::get('/pricelist', [PricelistController::class, 'showPricelist'])->name('pricelist');
+//     Route::middleware('checkrole:customer')->group(function () {
+//         Route::get('/pricelist', [PricelistController::class, 'Pricelist'])->name('pricelist');
 //     });
 // });
 
@@ -53,6 +51,8 @@ Route::middleware('auth')->group(function () {
         });
         Route::get('/admin/data-customer', [ManagementCustomerController::class, 'index'])->name('data-customer.index');
         Route::get('/admin/data-pricelist', [ManagementPricelistController::class, 'index'])->name('data-pricelist.index');
+        Route::get('/admin/daftar-reservasi', [DaftarreservasiController::class, 'index'])->name('daftar-reservasi.index');
+
         Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
         // Route::resource('/pricelists', \App\Http\Controllers\Admin\PostPrecelistController::class)->middleware('admin');
 

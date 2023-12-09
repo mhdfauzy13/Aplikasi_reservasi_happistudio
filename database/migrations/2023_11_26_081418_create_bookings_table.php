@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('bookings', function (Blueprint $table) {
             // $table->string('nama_lengkap');
             // $table->string('email');
+            $table->id();
             $table->string('no_whatsaap');
             $table->unsignedBigInteger('user_id');
             $table->date('tanggal_booking');
@@ -20,8 +21,8 @@ return new class extends Migration {
             $table->string('jumlah_hewan_peliharaan');
             $table->string('warna_backdrop');
             $table->boolean('upload_sosial_media');
+            $table->string('snap_token')->nullable();
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

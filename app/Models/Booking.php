@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-     use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'no_whatsaap',
@@ -19,7 +19,7 @@ class Booking extends Model
         'upload_sosial_media',
     ];
 
-  
+
     // public function user()
     // {
     //     return $this->belongsTo(User::class);

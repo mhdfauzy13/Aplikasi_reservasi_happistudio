@@ -48,6 +48,6 @@ class SingleSelfPhotoController extends Controller
             $datenow->addDays(1);
         }
 
-        return view('customer.self_photo.form_single', compact(['date7hari','waktu']));
+        return view('customer.self_photo.form_booking', compact(['date7hari','waktu']));
     }
 }

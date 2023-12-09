@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('single_self_photos', function (Blueprint $table) {
+        Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('tanggal');
+            $table->foreignId('booking_id')->constrained();
+            // $table->foreign('booking_id')->references('id')->on('bookings');
+            $table->string('status')->default('pending');
+            $table->integer('total');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('single_self_photos');
+        Schema::dropIfExists('pembayarans');
     }
 };

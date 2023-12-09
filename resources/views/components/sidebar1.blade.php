@@ -1,7 +1,7 @@
 <body class="bg-gray-50 dark:bg-slate-900">
   <!-- ========== MAIN CONTENT ========== -->
   <!-- Sidebar Toggle -->
-  <div class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-800 dark:border-gray-700">
+  {{-- <div class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-gray-800 dark:border-gray-700">
     <div class="flex items-center py-4">
       <!-- Navigation Toggle -->
       <button type="button" class="text-gray-500 hover:text-gray-600" data-hs-overlay="#application-sidebar" aria-controls="application-sidebar" aria-label="Toggle navigation">
@@ -26,14 +26,16 @@
       </ol>
       <!-- End Breadcrumb -->
     </div>
-  </div>
+  </div> --}}
   <!-- End Sidebar Toggle -->
 
   <!-- Sidebar -->
   <div id="application-sidebar" class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-red-500 border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
     <div class="px-6">
-      <a class="flex-none text-xl font-bold text-red-200" href="#" aria-label="Happpi Studio">Happi studio</a>
+      {{-- <img src="assets/image/logofix.png" alt=""> --}}
+      <a class="flex-none text-xl font-bold text-red-200">Happi studio</a>
     </div>
+
 
     <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
       <ul class="space-y-1.5">
@@ -77,7 +79,7 @@
         </div>
       
         <div>
-          <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-md hover:bg-red-200 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
+          <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-md hover:bg-red-200 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300" href={{ route('daftar-reservasi.index') }}>
             <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
               <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>

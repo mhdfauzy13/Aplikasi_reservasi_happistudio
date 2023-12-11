@@ -65,7 +65,7 @@ class PaketController extends Controller
             return redirect()
                 ->route('pakets.index')
                 ->with(['error' => 'Data tidak ditemukan!']);
-                
+
         }
         return view('Admin.data_pricelist.edit', compact('paketModel', 'paket'));
 
@@ -80,7 +80,7 @@ class PaketController extends Controller
             return redirect()
                 ->route('pakets.index')
                 ->with(['error' => 'Data tidak ditemukan!']);
-                
+
         }
 
         //validate form
@@ -90,7 +90,7 @@ class PaketController extends Controller
             // 'gambar' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'harga' => 'required|max:10',
         ]);
-        
+
 
         //upload image
         $imagename = '';
@@ -102,7 +102,7 @@ class PaketController extends Controller
         $paketModel->gambar = $imagename;
 
         }
-        
+
 
         $paketModel->nama_paket = $request->nama_paket;
         $paketModel->deskripsi = $request->deskripsi;

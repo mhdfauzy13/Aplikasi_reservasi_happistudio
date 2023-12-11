@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Paket;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\PricelistController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+route::get('/home',[HomeController::class,'login']);
+
 // Route::middleware(['auth', 'verified'])->group(function () {
 //      // Rute untuk admin
 //     Route::middleware('checkrole:admin')->group(function () {
@@ -43,6 +46,8 @@ Route::get('/dashboard', function () {
 //     });
 // });
 
+
+
 Route::middleware('auth')->group(function () {
 
     Route::middleware('checkrole:admin')->group(function () {
@@ -52,7 +57,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/data-customer', [ManagementCustomerController::class, 'index'])->name('data-customer.index');
         Route::get('/admin/data-pricelist', [ManagementPricelistController::class, 'index'])->name('data-pricelist.index');
         Route::get('/admin/daftar-reservasi', [DaftarreservasiController::class, 'index'])->name('daftar-reservasi.index');
-
         Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
         // Route::resource('/pricelists', \App\Http\Controllers\Admin\PostPrecelistController::class)->middleware('admin');
 
@@ -64,7 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('checkrole:customer')->group(function () {
     Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
     Route::post('/single-self-photo/create', [BookingController::class, 'store'])->name('store.booking');
-    
+
 
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -73,6 +77,7 @@ Route::middleware('auth')->group(function () {
 
 
 });
+
 
 
 require __DIR__.'/auth.php';

@@ -24,7 +24,7 @@
     </div>
     <div class=" mt-10 ml-10" >
         <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+        <x-auth-session-status class="mb-4":status="session('status')" />
 
         <form method="POST" action="{{ route('login') }}" class="mt-4">
             @csrf
@@ -54,7 +54,7 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-                <x-danger-button class="text-center btn btn-danger mt-5 font-bold" style="font-size:15px;">
+                <x-danger-button class="text-center btn btn-danger mt-5 font-bold" style="font-size:15px;" >
                 {{ __('Log in') }}
                 </x-danger-button>
             </div>

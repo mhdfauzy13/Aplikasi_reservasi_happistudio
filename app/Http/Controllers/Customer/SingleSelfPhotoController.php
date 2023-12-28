@@ -15,7 +15,7 @@ class SingleSelfPhotoController extends Controller
         $datenow = Carbon::now();
         $date7hari = [];
         $waktu = [
-            (object)['id' => 1, 'waktu' => '10.00'],
+           (object)['id' => 1, 'waktu' => '10.00'],
             (object)['id' => 2, 'waktu' => '10.30'],
             (object)['id' => 3, 'waktu' => '11.00'],
             (object)['id' => 4, 'waktu' => '13.00'],
@@ -33,21 +33,19 @@ class SingleSelfPhotoController extends Controller
             (object)['id' => 16, 'waktu' => '19.00'],
             (object)['id' => 17, 'waktu' => '19.30'],
 
-
         ];
+
         for ($i = 0; $i < 7; $i++) {
-            // Menambahkan objek Carbon ke dalam array $date7hari
             $date7hari[] = (object) [
-                'hari' => $datenow->isoFormat('dddd'), // Menyimpan nama hari
-                'tanggal' => $datenow->format('d'), // Menyimpan tanggal
-                'bulan' => $datenow->isoFormat('MMM'), // Menyimpan singkatan nama bulan
-                'tahun' => $datenow->format('Y'), // Menyimpan tahun
+                'hari' => $datenow->isoFormat('dddd'),
+                'tanggal' => $datenow->format('d'),
+                'bulan' => $datenow->isoFormat('MMM'),
+                'tahun' => $datenow->format('Y'),
             ];
 
-            // Menambahkan satu hari ke tanggal saat ini
             $datenow->addDays(1);
         }
 
-        return view('customer.self_photo.form_booking', compact(['date7hari','waktu']));
+        return view('customer.self_photo.form_booking', compact('date7hari', 'waktu'));
     }
 }

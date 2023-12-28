@@ -8,6 +8,7 @@ use App\Http\Controllers\Customer\SingleSelfPhotoController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Paket;
+use App\Http\Controllers\Customer\booking_detailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\PricelistController;
 use App\Http\Controllers\HomeController;
@@ -46,8 +47,6 @@ route::get('/home',[HomeController::class,'login']);
 //     });
 // });
 
-
-
 Route::middleware('auth')->group(function () {
 
     Route::middleware('checkrole:admin')->group(function () {
@@ -55,7 +54,7 @@ Route::middleware('auth')->group(function () {
             return view('admin.admin');
         });
         Route::get('/admin/data-customer', [ManagementCustomerController::class, 'index'])->name('data-customer.index');
-        Route::get('/admin/data-pricelist', [ManagementPricelistController::class, 'index'])->name('data-pricelist.index');
+        // Route::get('/admin/data-pricelist', [ManagementPricelistController::class, 'index'])->name('data-pricelist.index');
         Route::get('/admin/daftar-reservasi', [DaftarreservasiController::class, 'index'])->name('daftar-reservasi.index');
         Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard.index');
         // Route::resource('/pricelists', \App\Http\Controllers\Admin\PostPrecelistController::class)->middleware('admin');
@@ -65,9 +64,12 @@ Route::middleware('auth')->group(function () {
 
 
     });
+
     Route::middleware('checkrole:customer')->group(function () {
     Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
-    Route::post('/single-self-photo/create', [BookingController::class, 'store'])->name('store.booking');
+    // Route::post('/single-self-photo/create', [BookingController::class, 'store'])->name('booking.store');
+    Route::get('/booking/{id}', [booking_detailController::class, 'show'])->name('booking_detail.create');;
+    Route::resource('/bookings', \App\Http\Controllers\Customer\BookingController::class);
 
 
     });

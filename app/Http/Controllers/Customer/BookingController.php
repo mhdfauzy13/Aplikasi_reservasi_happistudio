@@ -4,43 +4,59 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
-    //
-   public function store(Request $request)
-{
-    // Validasi data dari form
-    $validatedData = $request->validate([
-        'no_whatsaap' => 'required|max:12|min:11',
-        'tanggal_booking' => 'required|date',
-        'jam_booking' => 'required|max:5',
-        'jumlah_hewan_peliharaan' => 'required|max:2',
-        'warna_backdrop' => 'required',
-        'upload_sosial_media' => 'required|boolean',
-        // tambahkan validasi lainnya sesuai kebutuhan
-    ]);
+     /**
+     * index
+     */
+    public function index(): View
+    {
+        //get posts
+        $bookings = booking::latest()->paginate(5);
+        // dd($pakets);
 
-    // Membuat instansiasi baru dari model Booking
-    $booking = new Booking();
+        //render view with posts
+        return view('customer.self_photo.form_booking', compact('bookings'));
+    }
 
-    // Mengisi instansiasi dengan data dari form
-    $booking->no_whatsaap = $validatedData['no_whatsaap'];
-    $booking->user_id = auth()->id(); // Mengasumsikan Anda telah mengimplementasikan autentikasi
-    $booking->tanggal_booking = $validatedData['tanggal_booking'];
-    $booking->jam_booking = $validatedData['jam_booking'];
-    $booking->jumlah_hewan_peliharaan = $validatedData['jumlah_hewan_peliharaan'];
-    $booking->warna_backdrop = $validatedData['warna_backdrop'];
-    $booking->upload_sosial_media = $validatedData['upload_sosial_media'];
+    public function store(Request $request)
+    {
+        // Log::info($request->all()); // Log data
+        dd($request->all());
+        // Validasi data dari form
+        $this->validate($request, [
+            'no_whatsaap' => 'required|max:12|min:11',
+            'tanggal_booking' => 'required|date_format:l M d',
+            'waktu_booking' => 'required|max:5',
+            'jumlah_hewan_peliharaan' => 'required|numeric|min:0',
+            'warna_backdrop' => 'required',
+            'upload_sosial_media' => 'required|boolean',
+            'kategori' => 'required|in:single,double,group', // Validasi untuk kategori yang harus menjadi salah satu dari 'single', 'double', atau 'group'
+            'tambahan_orang' => 'required_if:kategori,group|numeric|min:5|max:10', // Validasi untuk tambahan orang hanya jika kategori adalah 'group'
+        ]);
 
-    // Menyimpan data booking ke dalam database
-    $booking->save();
+        Booking::create([
+            'no_whatsaap' => $request->no_whatsaap,
+            'tanggal_booking' => $request->tanggal_booking,
+            'waktu_booking' => $request->waktu_booking,
+            'jumlah_hewan_peliharaan' => $request->jumlah_hewan_peliharaan,
+            'warna_backdrop' => $request->warna_backdrop,
+            'upload_sosial_media' => $request->upload_sosial_media,
+            'kategori' => $request->kategori,
+            'tambahan_orang' => $request->tambahan_orang,
+        ]);
 
-    // Anda dapat menambahkan logika tambahan di sini, seperti pengiriman email atau notifikasi
+        // // Simpan data booking
+        // Booking::create($request->all());
 
-    // Mengarahkan pengguna ke halaman terima kasih atau halaman yang diinginkan
-    return redirect()->route('daftar-reservasi.index')->with('success', 'Booking berhasil!');
-}
-
+        // Redirect ke halaman yang sesuai, misalnya, indeks booking
+        //redirect to index
+        return redirect()
+            ->route('bookings.index')
+            ->with(['success' => 'Data Berhasil Disimpan!']);
+    }
 }

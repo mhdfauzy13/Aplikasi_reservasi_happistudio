@@ -8,31 +8,45 @@
     <link rel="icon" href="assets/image/logofix.png" type="image/png">
     <title>Home</title>
     @vite('resources/css/app.css')
+    <style>
+        @keyframes moveDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(0px);
+                /* Sesuaikan dengan seberapa tinggi animasi ke bawah */
+            }
+        }
+
+        .animate-bounce:hover {
+            animation: moveDown 3s infinite alternate;
+            /* Animasi bergerak ke bawah saat mouse hover */
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(10);
+            }
+        }
+
+        .animate-fadeInLeft {
+            animation: fadeInLeft 5s ease-out;
+        }
+    </style>
+
 </head>
 
 <body>
-    {{-- <div class="relative w-[1500x] h-[75px] bg-red-600 shadow-xl mt-7">
-        <div class="flex flex-warp">
-            <img src="assets/image/logo_happistudio 3.png" alt=""
-                class="w-[130px] ml-20 absolute top-0 shadow-lg ">
-            <div class="flex items-center justify-center flex-1 space-x-10">
-                <a href="/" class="text-white font-bold hover:text-black mt-5">BERANDA</a>
-                <a href="#about" class="text-white font-bold hover:text-black mt-5">ABOUT</a>
-                <a href="/pricelist" class="flex items-center text-white font-bold hover:text-black mt-5">
-                    PRICELIST
-                </a>
-            </div>
-            <div class="flex justify-end mr-5">
-                <a href="/login">
-                    <p class="mt-5 font-bold text-white hover:text-black">Login</p>
-                </a>
-                <p class="mt-5 font-bold text-white">|</p>
-                <a href="/register">
-                    <p class="mt-5 font-bold text-white hover:text-black">Daftar</p>
-                </a>
-            </div>
-        </div>
-    </div> --}}
     @include('layouts.aside')
 
     <div class="carousel carousel-end h-[400px]">
@@ -49,8 +63,8 @@
 
     <div id="about" class="hero min-h-screen">
         <div class="hero-content flex-col lg:flex-row-reverse">
-            <img src="assets/image/logo_happistudio 4.png" class="max-w-sm rounded-lg" />
-            <div>
+            <img src="assets/image/logo_happistudio 4.png" class="max-w-sm rounded-lg logo-animation animate-bounce" />
+            <div class="animate-fadeInLeft">
                 <h1 class="text-5xl font-bold">ABOUT US</h1>
                 <p class="py-6">
                     HappiStudio adalah destinasi utama Anda untuk merayakan keindahan dalam bentuk gambar. <br>

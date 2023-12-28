@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('no_whatsaap');
             $table->unsignedBigInteger('user_id');
             $table->date('tanggal_booking');
-            $table->string('jam_booking');
+            $table->string('waktu_booking');
             $table->string('jumlah_hewan_peliharaan');
             $table->string('warna_backdrop');
             $table->boolean('upload_sosial_media');

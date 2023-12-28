@@ -46,7 +46,7 @@ class PaketController extends Controller
         //create post
         Paket::create([
             'nama_paket' => $request->nama_paket,
-            'deskripsi' => $request->deskripsi,
+            'deskripsi' => $request->deskripsi, 
             'gambar' => $image->hashName(),
             'harga' => $request->harga,
         ]);

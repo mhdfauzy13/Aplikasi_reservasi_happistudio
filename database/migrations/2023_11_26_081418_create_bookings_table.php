@@ -16,14 +16,19 @@ return new class extends Migration {
             $table->id();
             $table->string('no_whatsaap');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('pakets_id');
+            $table->string('kategori');
+            $table->string('tambahan_orang')->nullable();
             $table->date('tanggal_booking');
             $table->string('waktu_booking');
-            $table->string('jumlah_hewan_peliharaan');
+            $table->string('jumlah_hewan_peliharaan')->nullable();
             $table->string('warna_backdrop');
             $table->boolean('upload_sosial_media');
             $table->string('snap_token')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('pakets_id')->references('id')->on('pakets');
+
         });
     }
 

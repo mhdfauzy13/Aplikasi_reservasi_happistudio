@@ -52,7 +52,7 @@
                     <div id="tambahan_orang" class="max-w-[500px] w-full mt-4" style="display: none;">
                         <label for="tambahan_orang" class="font-semibold text-lg">Tambahan Orang</label>
                         <input name="tambahan_orang" type="number" placeholder="Tambahan Orang"
-                            class="iborder rounded-lg text-gray-700 input input-bordered w-full relative" min="5"
+                            class="iborder rounded-lg text-gray-700 input input-bordered w-full relative" min="0"
                             max="10" />
                     </div>
 
@@ -81,10 +81,11 @@
                         <div class="flex flex-wrap" id="tanggalContainer">
                             @foreach ($date7hari as $item)
                                 <div id="tanggal{{ $item->hari }}"
-                                    onclick="clickTanggal('{{ $item->hari }}', '{{ $item->bulan }}', '{{ $item->tanggal }}')"
+                                    onclick="clickTanggal('{{ $item->hari }}', '{{ $item->bulan }}', '{{ $item->tanggal }}', '{{ $item->datenow }}')"
                                     class="w-[97px] h-[60px] p-2 rounded-lg border border-gray-500 hover:bg-gray-300 mt-4 ml-3 tanggal-item">
                                     <p class="text-xs text-center">{{ $item->tanggal }} {{ $item->bulan }}</p>
                                     <p class="font-semibold text-center">{{ $item->hari }}</p>
+                                    {{-- <p>{{ $item->datenow }}</p> --}}
                                 </div>
                             @endforeach
                         </div>
@@ -110,9 +111,9 @@
                         // Objek untuk menyimpan waktu yang sudah di-booking untuk setiap hari
                         const bookedTimes = {};
 
-                        function clickTanggal(hari, bulan, tanggal) {
+                        function clickTanggal(hari, bulan, tanggal, datenow) {
                             // Set tanggalBooking sesuai dengan hari, bulan, dan tanggal yang diklik
-                            tanggalBooking.value = hari + ' ' + bulan + ' ' + tanggal;
+                            tanggalBooking.value = datenow;
 
                             // Reset style warna background pada semua elemen tanggal-item
                             document.querySelectorAll('.tanggal-item').forEach(function(item) {
@@ -166,21 +167,21 @@
 
                     <div class="mt-4">
                         <label for="warna" class="font-semibold text-lg">Warna backdrop</label>
-                        <select name="warna" class="select select-bordered w-full max-w-xs">
-                            <option value="" disabled selected>Warna backdrop</option>
-                            <option>Gray</option>
-                            <option>White</option>
-                            <option>Pink</option>
+                        <select name="warna_backdrop" class="select select-bordered w-full max-w-xs">
+                            <option value="Gray" disabled selected>Warna backdrop</option>
+                            <option value="Gray">Gray</option>
+                            <option value="White">White</option>
+                            <option value="Pink">Pink</option>
                         </select>
                     </div>
 
                     <!-- Bagian Upload Sosial Media -->
 
                     <div class="mt-4">
-                        <label for="upload_sosmed" class="font-semibold text-lg mb-4">Apakah bersedia hasil foto
+                        <label for="upload_sosial_media" class="font-semibold text-lg mb-4">Apakah bersedia hasil foto
                             diupload ke Sosial media happistudio?</label>
-                        <input type="radio" name="upload_sosmed" value="1" class="radio" /> Ya
-                        <input type="radio" name="upload_sosmed" value="0" class="radio ml-3" /> Tidak
+                        <input type="radio" name="upload_sosial_media" value="1" class="radio" /> Ya
+                        <input type="radio" name="upload_sosial_media" value="0" class="radio ml-3" /> Tidak
                     </div>
 
                     <!-- Tombol Submit -->

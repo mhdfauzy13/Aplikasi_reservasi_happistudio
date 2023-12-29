@@ -13,10 +13,15 @@ class Booking extends Model
      *
      * @var array
      */
-    protected $fillable = ['no_whatsaap', 'user_id', 'tanggal_booking', 'waktu_booking', 'jumlah_hewan_peliharaan', 'warna_backdrop', 'upload_sosial_media'];
+    protected $fillable = ['no_whatsaap', 'user_id', 'pakets_id', 'kategori', 'tambahan_orang', 'tanggal_booking', 'waktu_booking', 'jumlah_hewan_peliharaan', 'warna_backdrop', 'upload_sosial_media'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function pakets()
+    {
+        return $this->belongsTo(Paket::class);
     }
 }

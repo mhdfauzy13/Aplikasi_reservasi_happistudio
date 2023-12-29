@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('checkrole:customer')->group(function () {
     Route::get('/single-self-photo/create', [SingleSelfPhotoController::class, 'createBooking'])->name('singleSelfPhoto.createbooking');
     // Route::post('/single-self-photo/create', [BookingController::class, 'store'])->name('booking.store');
-    Route::get('/booking/{id}', [booking_detailController::class, 'show'])->name('booking_detail.create');;
+    Route::get('/booking/{id}', [booking_detailController::class, 'show'])->name('booking_detail');;
     Route::resource('/bookings', \App\Http\Controllers\Customer\BookingController::class);
 
 

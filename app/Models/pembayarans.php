@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class pembayarans extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['booking_id','total'];
 }

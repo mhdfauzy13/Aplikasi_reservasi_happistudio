@@ -41,11 +41,15 @@ class SingleSelfPhotoController extends Controller
                 'tanggal' => $datenow->format('d'),
                 'bulan' => $datenow->isoFormat('MMM'),
                 'tahun' => $datenow->format('Y'),
+
+                // 'datenow' => $datenow->format('Y-M-D'),
+                'datenow' => $datenow->format('Y').'-'. $datenow->format('m').'-'.$datenow->format('d'),
+
             ];
 
             $datenow->addDays(1);
         }
-
+        // dd($date7hari);
         return view('customer.self_photo.form_booking', compact('date7hari', 'waktu'));
     }
 }

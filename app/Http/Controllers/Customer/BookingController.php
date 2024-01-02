@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
-     /**
+    /**
      * index
      */
     public function index(): View

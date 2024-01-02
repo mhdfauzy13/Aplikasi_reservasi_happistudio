@@ -13,6 +13,7 @@
 </head>
 
 <body>
+      @include('layouts.aside')
     <div>
         <div class="flex justify-center">
             <P class=" text-red-500 font-bold mt-10" style="font-family: Boogaloo; font-size: 40px;">FORM BOOKING</P>
@@ -42,9 +43,9 @@
                         <p class="font-semibold text-lg mb-4">Kategori</p>
                         <select id="kategori_paket" name="kategori" class="select select-bordered w-full">
                             <option disabled selected>-- Pilih kategori --</option>
-                            <option value="single">Single</option>
-                            <option value="double">Double</option>
-                            <option value="group">Group</option>
+                            <option value="Single">Single</option>
+                            <option value="Double">Double</option>
+                            <option value="Group">Group</option>
                         </select>
                     </div>
 
@@ -196,6 +197,8 @@
             </div>
         </form>
     </div>
+    
+    @include('layouts.footer')
 </body>
 
 </html>

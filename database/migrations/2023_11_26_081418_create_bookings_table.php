@@ -23,8 +23,9 @@ return new class extends Migration {
             $table->string('waktu_booking');
             $table->string('jumlah_hewan_peliharaan')->nullable();
             $table->string('warna_backdrop');
+            $table->enum('payment_status',['unpaid','paid']);
             $table->boolean('upload_sosial_media');
-            $table->string('snap_token')->nullable();
+            // $table->string('snap_token')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('pakets_id')->references('id')->on('pakets');

@@ -6,12 +6,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-lg mx-auto">
         <div class="bg-white p-8 rounded shadow-md">
             <h2 class="text-xl font-semibold mb-4">Total Customer</h2>
-            <p class="text-3xl font-bold text-indigo-500">{{ $totalRegisteredUsers }}</p>
+            <p class="text-3xl font-bold text-indigo-500">{{ $jumlah_register }}</p>
         </div>
 
         <div class="bg-white p-8 rounded shadow-md">
             <h2 class="text-xl font-semibold mb-4">Total Pricelist</h2>
-            <p class="text-3xl font-bold text-yellow-500">{{ $totalPackages }}</p>
+            <p class="text-3xl font-bold text-yellow-500">{{ $jumlah_priceList }}</p>
         </div>
 
          <div class="bg-white p-8 rounded shadow-md">

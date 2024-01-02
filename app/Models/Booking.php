@@ -13,6 +13,9 @@ class Booking extends Model
      *
      * @var array
      */
+    public $primaryKey = "id_booking";
+    protected $keyType = 'string';
+    public $incrementing = false;
     protected $fillable = ['no_whatsaap', 'user_id', 'pakets_id', 'kategori', 'tambahan_orang', 'tanggal_booking', 'waktu_booking', 'jumlah_hewan_peliharaan', 'warna_backdrop', 'upload_sosial_media'];
 
     public function user()

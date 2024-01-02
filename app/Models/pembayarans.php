@@ -10,4 +10,6 @@ class pembayarans extends Model
     use HasFactory;
 
     protected $fillable = ['booking_id','total'];
+
+
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
             $table->timestamp('tanggal');
-            $table->foreignId('booking_id')->constrained();
+            $table->string('booking_id')->unique();
             // $table->foreign('booking_id')->references('id')->on('bookings');
             $table->string('status')->default('pending');
             $table->integer('total');

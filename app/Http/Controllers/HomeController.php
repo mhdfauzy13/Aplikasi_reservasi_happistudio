@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use app\Models\user;
@@ -20,7 +21,11 @@ class HomeController extends Controller
         }
 
         else if($role=='admin'){
-            return view('/admin/dashboard');
+            $data = [
+                "jumlah_register" => User::count(),
+                'jumlah_priceList' => Paket::count(),
+            ];
+            return view('admin.dashboard',$data);
         }
 
         else{

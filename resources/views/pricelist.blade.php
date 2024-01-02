@@ -18,7 +18,7 @@
         <div class="flex justify-center ">
             <div class="flex flex-col">
                 @foreach ($paket as $item)
-                
+
                 <div class="flex max-w-2xl bg-white shadow-2xl rounded-2xl overflow-hidden mt-10 ml-8">
                     <figure class="w-1/3">
                         <img src="{{ asset('storage/pakets/' . $item->gambar) }}" alt="Movie" class="w-full h-full object-cover transform rotate-3">
@@ -47,11 +47,20 @@
                     </div>
                 </div>
                 @endforeach
-                
             </div>
         </div>
     </div>
+
+    <div class="last-content"></div>
+
     @include('layouts.footer')
 </body>
 
 </html>
+
+<style>
+    /* Pilihan 1: Menambahkan margin-bottom pada konten terakhir */
+    .last-content {
+        margin-bottom: 100px; /* Atur nilai sesuai dengan kebutuhan Anda */
+    }
+</style>

@@ -15,21 +15,28 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-100">
+<body>
+     @include('layouts.aside')
 
-    <div class="max-w-2xl mx-auto mt-8 p-4 bg-white rounded shadow">
+    <div class="max-w-2xl mx-auto mt-8 p-4 bg-white rounded-lg shadow-lg">
 
         <h1 class="text-2xl font-bold mb-4">Detail Booking</h1>
 
         <div>
-            {{-- <p>ppppp</p> --}}
             <p class="text-gray-600">Nomor WhatsApp: {{ $booking->no_whatsaap }}</p>
             <p class="text-gray-600">Kategori: {{ $booking->kategori }}</p>
-            <p class="text-gray-600">Tambahan Orang: {{ $booking->tambahan_orang }}</p>
+            <p class="text-gray-600">Tambahan Orang:
+                @if ($booking->tambahan_orang)
+                    {{ $booking->tambahan_orang }}
+                @else
+                    -
+                @endif
+            </p>
+
             <p class="text-gray-600">Tanggal Booking: {{ $booking->tanggal_booking }}</p>
             <p class="text-gray-600">Jam Booking: {{ $booking->waktu_booking }}</p>
             <p class="text-gray-600">Jumlah Hewan Peliharaan: {{ $booking->jumlah_hewan_peliharaan }}</p>
-            <p class="text-gray-600">Warna Backdrop: {{ $booking->warna_backdrop }}</p>
+            <p class="text-gray-600">Warna Backdrop: {{ $booking->warna_backdrop}}</p>
             <p class="text-gray-600">Bersedia Hasil Foto di Upload ke Sosial Media:
                 {{-- {{ $booking->upload_sosial_media }} --}}
                 @if ($booking->upload_sosial_media)
@@ -44,36 +51,6 @@
         <button type="submit" class="btn btn-primary" id="pay-button">Bayar</button>
     </div>
 
-
 </body>
-
-<script type="text/javascript">
-    // For example trigger on button clicked, or any time you need
-    var payButton = document.getElementById('pay-button');
-    payButton.addEventListener('click', function() {
-        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-        window.snap.pay('{{ $snapToken }}', {
-            onSuccess: function(result) {
-                /* You may add your own implementation here */
-                alert("payment success!");
-                console.log(result);
-            },
-            onPending: function(result) {
-                /* You may add your own implementation here */
-                alert("wating your payment!");
-                console.log(result);
-            },
-            onError: function(result) {
-                /* You may add your own implementation here */
-                alert("payment failed!");
-                console.log(result);
-            },
-            onClose: function() {
-                /* You may add your own implementation here */
-                alert('you closed the popup without finishing the payment');
-            }
-        })
-    });
-</script>
 
 </html>

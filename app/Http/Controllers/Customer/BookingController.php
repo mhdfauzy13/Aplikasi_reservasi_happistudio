@@ -30,19 +30,6 @@ class BookingController extends Controller
 
     public function store(Request $request)
     {
-        // Log::info($request->all()); // Log data
-        // dd($request->all());
-        // Validasi data dari form
-        // $this->validate($request, [
-        //     'no_whatsaap' => 'required|max:12|min:11',
-        //     'tanggal_booking' => 'required|date_format:l M d',
-        //     'waktu_booking' => 'required|max:5',
-        //     'jumlah_hewan_peliharaan' => 'required|numeric|min:0',
-        //     'warna_backdrop' => 'required',
-        //     'upload_sosial_media' => 'required|boolean',
-        //     'kategori' => 'required|in:single,double,group', // Validasi untuk kategori yang harus menjadi salah satu dari 'single', 'double', atau 'group'
-        //     'tambahan_orang' => 'required_if:kategori,group|numeric|min:5|max:10', // Validasi untuk tambahan orang hanya jika kategori adalah 'group'
-        // ]);
 
         $booking = Booking::create([
             'user_id' => Auth::user()->id,

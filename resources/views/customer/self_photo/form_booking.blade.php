@@ -64,7 +64,7 @@
                         var tambahan_orang = document.getElementById("tambahan_orang");
 
                         kategori.addEventListener("change", function() {
-                            if (kategori.value === 'group') {
+                            if (kategori.value === 'Group') {
                                 tambahan_orang.style.display = "block";
                             } else {
                                 tambahan_orang.style.display = "none";
@@ -196,9 +196,17 @@
 
             </div>
         </form>
+        <div class="last-content"></div>
     </div>
-    
+
     @include('layouts.footer')
 </body>
 
 </html>
+
+<style>
+    /* Pilihan 1: Menambahkan margin-bottom pada konten terakhir */
+    .last-content {
+        margin-bottom: 100px; /* Atur nilai sesuai dengan kebutuhan Anda */
+    }
+</style>

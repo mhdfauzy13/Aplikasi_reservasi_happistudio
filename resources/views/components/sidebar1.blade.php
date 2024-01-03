@@ -30,11 +30,11 @@
   <!-- End Sidebar Toggle -->
 
   <!-- Sidebar -->
-  <div id="application-sidebar" class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-red-500 bg-opacity-2 border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
-    <div class="flex justify-between  items-center space-x-3">
-        <img src="assets/image/logofix.png" width="50" height="50" viewBox="0 0 34 34">
-        <p class="text-2xl leading-6 text-white text-bold">HAPPI STUDIO</p>
-      </div>
+  <div id="application-sidebar" class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-red-500 border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
+    <div class="px-6">
+      {{-- <img src="assets/image/logofix.png" alt=""> --}}
+      <a class="flex-none text-xl font-bold text-red-200">Happi studio</a>
+    </div>
 
 
     <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>

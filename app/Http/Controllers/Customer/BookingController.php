@@ -30,9 +30,23 @@ class BookingController extends Controller
 
     public function store(Request $request)
     {
+        // Log::info($request->all()); // Log data
+        // dd($request->all());
+        // Validasi data dari form
+        // $this->validate($request, [
+        //     'no_whatsaap' => 'required|max:12|min:11',
+        //     'tanggal_booking' => 'required|date_format:l M d',
+        //     'waktu_booking' => 'required|max:5',
+        //     'jumlah_hewan_peliharaan' => 'required|numeric|min:0',
+        //     'warna_backdrop' => 'required',
+        //     'upload_sosial_media' => 'required|boolean',
+        //     'kategori' => 'required|in:single,double,group', // Validasi untuk kategori yang harus menjadi salah satu dari 'single', 'double', atau 'group'
+        //     'tambahan_orang' => 'required_if:kategori,group|numeric|min:5|max:10', // Validasi untuk tambahan orang hanya jika kategori adalah 'group'
+        // ]);
+
         $booking = Booking::create([
             'user_id' => Auth::user()->id,
-            'pakets_id' => 1,
+            'pakets_id' => 2,
             'no_whatsaap' => $request->no_whatsaap,
             'tanggal_booking' => $request->tanggal_booking,
             'waktu_booking' => $request->waktu_booking,
@@ -43,9 +57,9 @@ class BookingController extends Controller
             'tambahan_orang' => $request->tambahan_orang,
             'payment_status' => 'unpaid',
         ]);
-        $paket = Paket::find(1);
+        $paket = Paket::find(2);
         $bayar = Pembayarans::create([
-            'booking_id' => "BOOK-" . date("YmdHis"),
+            'booking_id' => "HP-" . date("YmdHis"),
             'total' => $paket->harga + ($request->tambahan_orang * 20000),
         ]);
 
@@ -59,7 +73,7 @@ class BookingController extends Controller
         //     ->with(['success' => 'Data Berhasil Disimpan!']);
 
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        \Midtrans\Config::$serverKey = ('SB-Mid-server-AkcKJNjU9s0YhBG6w0YdIebg');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
@@ -74,7 +88,7 @@ class BookingController extends Controller
             ),
             'customer_details' => array(
                 'Nama' => $request->name,
-                'phone' => $booking->no_whatsapp,
+                'phone' => $booking->no_whatsaap,
             ),
         );
 

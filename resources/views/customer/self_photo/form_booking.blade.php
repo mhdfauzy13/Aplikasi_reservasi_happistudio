@@ -24,6 +24,7 @@
         {{-- <form action={{ route('bookings.store') }} method="POST">
             @csrf
             @method('post') --}}
+            <input type="hidden" name="paket_id" value="{{ $paket->id }}">
             <div class="flex justify-center mt-8">
                 <div class="max-w-[500px] w-full">
                     {{-- <div class="w-full">

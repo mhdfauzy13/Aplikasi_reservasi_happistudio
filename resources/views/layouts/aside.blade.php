@@ -1,7 +1,7 @@
 <aside class="flex justify-between items-center px-5 py-3 bg-red-600" >
 
     <div>
-        <img src="../assets/image/logo_happistudio 3.png" alt="" class="w-[130px] ml-20 absolute top-0 shadow-lg ">
+        <img src="../../assets/image/logo_happistudio 3.png" alt="" class="w-[130px] ml-20 absolute top-0 shadow-lg ">
     </div>
 
     {{-- <div class="flex items-center justify-center flex-1 space-x-10"> --}}

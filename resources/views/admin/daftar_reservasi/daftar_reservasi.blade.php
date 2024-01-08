@@ -85,15 +85,15 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                                                        
+
                                                             @foreach ($bookings as $booking)
                                                                 <tr>
                                                                     <td
                                                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                                                                        hvjifgbv</td>
+                                                                        {{ $booking->user->name }}</td>
                                                                     <td
                                                                         class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                                                        reyfgyur</td>
+                                                                        {{ $booking->user->email }}</td>
                                                                     <td
                                                                         class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                                                         {{ $booking->no_whatsaap }}</td>
@@ -135,7 +135,7 @@
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
-                                                        
+
                                                     </tbody>
                                                 </table>
                                             </div>

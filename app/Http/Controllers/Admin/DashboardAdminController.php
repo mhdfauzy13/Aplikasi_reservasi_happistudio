@@ -12,10 +12,10 @@ class DashboardAdminController extends Controller
     public function index()
     {
         $user = User::where('role', 'customer')->get();
-        $totalRegisteredUsers = User::where('role', 'customer')->count();
-        $totalPackages = Paket::count();
+        $jumlah_register = User::where('role', 'customer')->count();
+        $jumlah_priceList = Paket::count();
 
 
-        return view('admin.dashboard', compact('user', 'totalRegisteredUsers','totalPackages'));
+        return view('admin.dashboard', compact('user', 'jumlah_register','jumlah_priceList'));
     }
 }

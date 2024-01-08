@@ -12,8 +12,9 @@ class DaftarreservasiController extends Controller
     public function index()
     {
         // Mengambil semua data Booking dari database
-        $bookings = Booking::all();
-        
+        $bookings = Booking::with('user')->get();
+        // dd($bookings);
+
         // Mengirimkan data Booking ke view
         return view('admin.daftar_reservasi.daftar_reservasi', compact('bookings'));
     }

@@ -36,7 +36,7 @@
                             <p class="font-bold">RP. {{ $item->harga}}</p>
                         </div>
                         <div class="flex justify-end">
-                            <a href="{{ route('singleSelfPhoto.createbooking') }}">
+                            <a href="{{ route('singleSelfPhoto.createbooking',['id' => $item->id]) }}">
                                 <button type ="button"
                                     class="btn btn-primary mb-px-6 py-3 bg-black text-white rounded hover:bg-orange-700 focus:outline-none focus:border-white focus:ring focus:ring-white"
                                     data-target="#form_booking">

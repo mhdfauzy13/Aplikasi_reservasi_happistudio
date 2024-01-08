@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Paket;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,13 @@ class SingleSelfPhotoController extends Controller
 {
     //createBooking
 
-    public function createBooking()
-    { 
+    public function createBooking($id)
+    {
+
+        $paket = Paket::find($id);
+        if(!$paket){
+            dd('gada');
+        }
         $datenow = Carbon::now();
         $date7hari = [];
         $waktu = [
@@ -50,6 +56,6 @@ class SingleSelfPhotoController extends Controller
             $datenow->addDays(1);
         }
         // dd($date7hari);
-        return view('customer.self_photo.form_booking', compact('date7hari', 'waktu'));
+        return view('customer.self_photo.form_booking', compact('date7hari', 'waktu', 'paket'));
     }
 }

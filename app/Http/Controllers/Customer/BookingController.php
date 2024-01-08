@@ -22,6 +22,7 @@ class BookingController extends Controller
     {
         //get posts
         $bookings = booking::latest()->paginate(5);
+
         // dd($pakets);
 
         //render view with posts
@@ -33,7 +34,7 @@ class BookingController extends Controller
 
         $booking = Booking::create([
             'user_id' => Auth::user()->id,
-            'pakets_id' => 2,
+            'pakets_id' =>  $request->paket_id,
             'no_whatsaap' => $request->no_whatsaap,
             'tanggal_booking' => $request->tanggal_booking,
             'waktu_booking' => $request->waktu_booking,
@@ -44,7 +45,7 @@ class BookingController extends Controller
             'tambahan_orang' => $request->tambahan_orang,
             'payment_status' => 'unpaid',
         ]);
-        $paket = Paket::find(2);
+        $paket = Paket::find($request->paket_id);
         $bayar = Pembayarans::create([
             'booking_id' => "HP-" . date("YmdHis"),
             'total' => $paket->harga + ($request->tambahan_orang * 20000),

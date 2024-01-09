@@ -51,8 +51,6 @@ class BookingController extends Controller
             'total' => $paket->harga + ($request->tambahan_orang * 20000),
         ]);
 
-
-
         // // Simpan data booking
         // Booking::create($request->all());
 

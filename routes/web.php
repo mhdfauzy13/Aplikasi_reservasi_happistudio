@@ -80,6 +80,6 @@ Route::middleware('auth')->group(function () {
 
 });
 
-
+route::get('invoice/{id}',[BookingController::class,'invoice']);
 
 require __DIR__.'/auth.php';

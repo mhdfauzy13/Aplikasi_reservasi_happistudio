@@ -160,7 +160,7 @@
 
 
                     <div class="flex flex-col max-w-[500px] w-full mt-4">
-                        <label for="jumlah_hewan_peliharaan" class="font-semibold text-lg">Jumlah hewan peliharaan
+                        <label for="jumlah_hewan_peliharaan" class="font-semibold text-lg">Jumlah hewan peliharaan (opsional)
                         </label>
                         <input type="number" name="jumlah_hewan_peliharaan"
                             class="border rounded-lg text-gray-700 input input-bordered w-full relative"

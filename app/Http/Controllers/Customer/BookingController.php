@@ -43,12 +43,12 @@ class BookingController extends Controller
             'upload_sosial_media' => $request->upload_sosial_media,
             'kategori' => $request->kategori,
             'tambahan_orang' => $request->tambahan_orang,
-            'payment_status' => 'unpaid',
+            // 'payment_status' => 'unpaid',
         ]);
         $paket = Paket::find($request->paket_id);
         $bayar = Pembayarans::create([
             'booking_id' => "HP-" . date("YmdHis"),
-            'total' => $paket->harga + ($request->tambahan_orang * 20000),
+            'total' => $paket->harga + ($request->tambahan_orang * 20000),'payment_status' => 'unpaid'
         ]);
 
         // // Simpan data booking
@@ -87,47 +87,17 @@ class BookingController extends Controller
 
     public function callback (Request $request)
     {
-        try {
-            $payload = $request->all();
-            $serverKey = config('midtrans.server_key');
-            $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
-
-            if ($hashed == $request->signature_key) {
-                if ($request->transaction_status == 'capture') {
-                    $order = Booking::where('order_id', $request->order_id)->first();
-
-                    if ($order) {
-                        DB::beginTransaction();
-
-                        try {
-                            $midtrans = MidtransHistory::create([
-                                'order_id' => $payload['order_id'],
-                                'status' => $payload['status_code'],
-                                'payload' => json_encode($payload),
-                            ]);
-
-                            $order->update(['payment_status' => 'paid']);
-
-                            DB::commit();
-
-                            return response()->json(['status' => 'success', 'message' => 'Order updated successfully', 'midtrans' => $midtrans]);
-                        } catch (\Exception $e) {
-                            DB::rollback();
-                            Log::error('Error updating order and creating MidtransHistory: ' . $e->getMessage());
-                            return response()->json(['status' => 'error', 'message' => 'Internal Server Error'], 500);
-                        }
-                    } else {
-                        return response()->json(['status' => 'error', 'message' => 'Order not found'], 404);
-                    }
-                } else {
-                    return response()->json(['status' => 'error', 'message' => 'Invalid transaction status'], 400);
-                }
-            } else {
-                return response()->json(['status' => 'error', 'message' => $serverKey], 400);
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+        if($hashed == $request->signature_key){
+            if($request->transaction_status == 'capture'){
+                $bayar = pembayarans::find($request->booking_id);
+                $bayar->update(['payment_status'=>'paid']);
             }
-        } catch (\Exception $e) {
-            Log::error('Error in callback: ' . $e->getMessage());
-            return response()->json(['status' => 'error', 'message' => 'internal server error'], 500);
         }
+    }
+    public function invoice($id){
+        $booking=booking::find($id);
+        return view('invoice',compact('booking'));
     }
 }

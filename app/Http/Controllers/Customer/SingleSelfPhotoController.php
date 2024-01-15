@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class SingleSelfPhotoController extends Controller
 {
-    //createBooking
+    
 
     public function createBooking($id)
     {
